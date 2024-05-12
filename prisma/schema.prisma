@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// npx prisma init > npx prisma generate > npx prisma db push
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Restroom {
+  timestamp DateTime @unique
+  M_totalUser Int
+  M_tissueLevel Float
+  M_ammonia Float
+  M_temp Float
+  M_humidity Float
+  F_totalUser Int
+  F_tissueLevel Float
+  F_ammonia Float
+  F_temp Float
+  F_humidity Float
+  D_totalUser Int
+  D_tissueLevel Float
+  D_ammonia Float
+  D_temp Float
+  D_humidity Float
+}
