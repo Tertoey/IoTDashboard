@@ -1,25 +1,21 @@
-'use client'
+"use client";
 
 import { createContext, useContext, useState } from "react";
 
-type Context = {
+type Context = {};
 
+const NavContext = createContext<any>(undefined);
+
+export function NavWrapper({ children }: { children: React.ReactNode }) {
+  let [isNavOpen, setIsNavOpen] = useState(false);
+
+  return (
+    <NavContext.Provider value={{ isNavOpen, setIsNavOpen }}>
+      {children}
+    </NavContext.Provider>
+  );
 }
 
-const NavContext = createContext<any>(undefined)
-
-export function NavWrapper({children}:{
-    children: React.ReactNode;
-  }){
-    let [isNavOpen, setIsNavOpen] = useState(true)
-
-    return(
-        <NavContext.Provider value={{isNavOpen, setIsNavOpen}}>
-            {children}
-        </NavContext.Provider>
-    )
-  }
-
-  export function useNavContext(){
-    return useContext(NavContext)
-  }
+export function useNavContext() {
+  return useContext(NavContext);
+}

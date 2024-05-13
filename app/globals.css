@@ -95,3 +95,15 @@
       @apply bg-background text-foreground;
     }
   }
+
+.RealtimeCardgradient {
+  @apply flex border rounded-xl bg-gradient-to-r from-green-400 to-blue-500 p-2
+}
+
+.CardIcon {
+  @apply ml-3 items-center flex justify-center w-1/4
+}
+
+.CardTextLayout {
+  @apply flex flex-col justify-center w-3/4 text-xl
+}
