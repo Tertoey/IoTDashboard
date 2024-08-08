@@ -1,0 +1,14 @@
+{
+  "Mroom1": true,
+  "Mroom2": true,
+  "Mroom3": false,
+  "Mroom4": false,
+  "Froom1": false,
+  "Froom2": false,
+  "Froom3": false,
+  "Froom4": false,
+  "leak1": false,
+  "leak2": false,
+  "disabledRoom": false,
+  "emergency": false
+}

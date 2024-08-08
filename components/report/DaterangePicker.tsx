@@ -1,15 +1,13 @@
 import * as React from "react";
-import { addDays, addWeeks, addMonths, format, startOfDay, endOfDay } from "date-fns";
+import { addDays, addMonths, format, startOfDay, endOfDay } from "date-fns";
 import { Calendar as CalendarIcon, ChevronDown } from "lucide-react";
 import { DateRange } from "react-day-picker";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -19,7 +17,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../ui/select";
 
 interface DatePickerProps {
   className?: React.HTMLAttributes<HTMLDivElement>;
@@ -27,7 +24,11 @@ interface DatePickerProps {
   setDate: React.Dispatch<React.SetStateAction<DateRange | undefined>>;
 }
 
-export function DatePickerWithRange({ className, date, setDate }: DatePickerProps) {
+export function DatePickerWithRange({
+  className,
+  date,
+  setDate,
+}: DatePickerProps) {
   const handleLastDay = () => {
     const lastDay = startOfDay(addDays(new Date(), -1));
     const toDay = startOfDay(new Date());
@@ -35,12 +36,18 @@ export function DatePickerWithRange({ className, date, setDate }: DatePickerProp
   };
 
   const handleLastWeek = () => {
-    const lastWeek = { from: startOfDay(addDays(new Date(), -7)), to: startOfDay(new Date()) };
+    const lastWeek = {
+      from: startOfDay(addDays(new Date(), -7)),
+      to: startOfDay(new Date()),
+    };
     setDate(lastWeek);
   };
 
   const handleLastMonth = () => {
-    const lastMonth = { from: startOfDay(addMonths(new Date(), -1)), to: startOfDay(new Date()) };
+    const lastMonth = {
+      from: startOfDay(addMonths(new Date(), -1)),
+      to: startOfDay(new Date()),
+    };
     setDate(lastMonth);
   };
 
@@ -73,16 +80,25 @@ export function DatePickerWithRange({ className, date, setDate }: DatePickerProp
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <div className="flex flex-col gap-2">
-                <DropdownMenu>
-                  <div className="mt-3 ml-2 mr-2 border rounded-sm">
-                    <DropdownMenuTrigger className="flex justify-between w-5/6 items-center m-2 ml-[20px] text-sm ">Select date<ChevronDown/></DropdownMenuTrigger>
-                  </div>
-                  <DropdownMenuContent className="ml-1 w-[260px]">
-                    <DropdownMenuItem onClick={handleLastDay}>Last Day</DropdownMenuItem>
-                    <DropdownMenuItem onClick={handleLastWeek}>Last Week</DropdownMenuItem>
-                    <DropdownMenuItem onClick={handleLastMonth}>Last Month</DropdownMenuItem>
-                  </DropdownMenuContent>
-              </DropdownMenu>
+            <DropdownMenu>
+              <div className="mt-3 ml-2 mr-2 border rounded-sm">
+                <DropdownMenuTrigger className="flex justify-between w-5/6 items-center m-2 ml-[20px] text-sm ">
+                  Select date
+                  <ChevronDown />
+                </DropdownMenuTrigger>
+              </div>
+              <DropdownMenuContent className="ml-1 w-[260px]">
+                <DropdownMenuItem onClick={handleLastDay}>
+                  Last Day
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLastWeek}>
+                  Last Week
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLastMonth}>
+                  Last Month
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             {/* <Select>
                 <SelectTrigger className="w-auto">
                     <SelectValue placeholder="Select a date fillter" />
@@ -102,8 +118,8 @@ export function DatePickerWithRange({ className, date, setDate }: DatePickerProp
               selected={date as DateRange}
               onSelect={setDate}
               disabled={date?.from}
-              
-            //   numberOfMonths={2}
+
+              //   numberOfMonths={2}
             />
           </div>
         </PopoverContent>

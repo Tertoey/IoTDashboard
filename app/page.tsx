@@ -1,6 +1,9 @@
+import Login from "@/components/layout/login";
 
 export default function Home() {
   return (
-    <div>Homepage</div>
+    <div className="flex justify-center items-center h-[90vh]">
+      <Login />
+    </div>
   );
 }

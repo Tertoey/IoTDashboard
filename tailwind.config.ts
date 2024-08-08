@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        floor1: "url('/floor/floor1.png')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -76,29 +79,29 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    function({addUtilities}:any){
+    function ({ addUtilities }: any) {
       const newUtilities = {
         ".scrollbar-thin": {
-          scrollbarWidth : "thin",
-          scrollbarColor : "rgb(31 29 29) white"
+          scrollbarWidth: "thin",
+          scrollbarColor: "rgb(31 29 29) white",
         },
-        ".scrollbar-webkit":{
-          "&::-webkit-scrollbar":{
-            width: "8px"
+        ".scrollbar-webkit": {
+          "&::-webkit-scrollbar": {
+            width: "8px",
           },
-          "&::-webkit-scrollbar-track":{
-            background:"white"
+          "&::-webkit-scrollbar-track": {
+            background: "white",
           },
-          "&::-webkit-scrollbar-thumb":{
-            backgroundColor:"rgb(31 41 55)",
-            borderRadius:"20px",
-            border: "1px solid white"
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "rgb(31 41 55)",
+            borderRadius: "20px",
+            border: "1px solid white",
           },
-        }
-      }
-      addUtilities(newUtilities, ["responsive", "hover"])
-    }
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
   ],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

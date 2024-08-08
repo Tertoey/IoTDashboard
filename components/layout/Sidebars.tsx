@@ -45,7 +45,19 @@ export default function Sidebars() {
               <X className="w-12 h-12" />
             </Button>
           </div>
-          <div className="flex flex-col text-lg mt-6">
+          <div className="flex flex-col text-lg mt-6 gap-3">
+            <div
+              className={`py-2 flex flex-row items-center gap-3 hover:bg-blue-100 relative -left-3 rounded-md ${
+                pathname === "/restroom/status"
+                  ? "bg-blue-400 relative -left-3 rounded-md "
+                  : ""
+              }`}
+            >
+              <FontAwesomeIcon className={`w-6 h-6 ml-3 `} icon={faRestroom} />
+              <a className="hover:underline" href="/restroom/status">
+                Restroom Status
+              </a>
+            </div>
             <div
               className={`py-2 flex flex-row items-center gap-3 hover:bg-blue-100 relative -left-3 rounded-md ${
                 pathname === "/restroom"
@@ -55,10 +67,10 @@ export default function Sidebars() {
             >
               <FontAwesomeIcon className={`w-6 h-6 ml-3 `} icon={faRestroom} />
               <a className="hover:underline" href="restroom">
-                Smart Restroom
+                Restroom Overview
               </a>
             </div>
-            <div
+            {/* <div
               className={`py-2 flex flex-row items-center gap-3 mt-2 hover:bg-blue-100 relative -left-3 rounded-md ${
                 pathname === "/building"
                   ? "bg-blue-400 rounded-md relative -left-3"
@@ -69,7 +81,7 @@ export default function Sidebars() {
               <a className="hover:underline" href="building">
                 Smart Building
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       ) : (
@@ -128,7 +140,9 @@ export default function Sidebars() {
               <PopoverTrigger>
                 <EllipsisVertical />
               </PopoverTrigger>
-              <PopoverContent>Logout</PopoverContent>
+              <PopoverContent>
+                <a href="/">Logout</a>
+              </PopoverContent>
             </Popover>
           </div>
         </div>
@@ -140,7 +154,9 @@ export default function Sidebars() {
                 GG
               </div>
             </PopoverTrigger>
-            <PopoverContent>Logout</PopoverContent>
+            <PopoverContent>
+              <a href="/">Logout</a>
+            </PopoverContent>
           </Popover>
         </div>
       )}
